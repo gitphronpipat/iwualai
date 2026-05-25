@@ -1,0 +1,58 @@
+# ===============================================================
+# CI3 Production .htaccess
+# ป้องกัน bot scan, block ไฟล์สำคัญ, block PHP ใน assets/uploads
+# Compatible Apache 2.4+ / Shared Hosting
+# ===============================================================
+
+# กำหนด default index
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # ถ้าเว็บอยู่ใน subfolder ให้ uncomment และแก้ path
+    # RewriteBase /your_subfolder/
+
+    # -------------------------------
+    # Block access ไฟล์สำคัญไม่ให้ถูกเรียกจากภายนอก
+    # -------------------------------
+    <FilesMatch "\.(env|ini|log|sh|bak|git|htaccess|htpasswd|phps)$">
+        Require all denied
+    </FilesMatch>
+
+    # -------------------------------
+    # Block PHP ใน assets / uploads (ถ้าไม่มี PHP จริง ๆ)
+    # -------------------------------
+    <FilesMatch "^(assets|uploads)/.*\.php$">
+        Require all denied
+    </FilesMatch>
+
+    # -------------------------------
+    # Block direct access application, system, tests folder
+    # -------------------------------
+    RewriteRule ^(application|system|tests)/ - [F,L,NC]
+
+    # -------------------------------
+    # Block common scan bot / admin page attempts
+    # -------------------------------
+    RewriteCond %{REQUEST_URI} ^/(login|config|setup|phpmyadmin|wp-login\.php) [NC]
+    RewriteRule ^.*$ - [L]
+
+    # -------------------------------
+    # CI3 Rewrite Rule หลัก
+    # ทุก request ที่ไม่ใช่ index.php, assets, install, update
+    # จะถูกส่งไป index.php
+    # -------------------------------
+    RewriteCond $1 !^(index\.php|assets|install|update)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+# -------------------------------
+# Extra Security Headers (optional)
+# -------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>

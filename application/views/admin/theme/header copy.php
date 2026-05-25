@@ -1,0 +1,83 @@
+<!-- Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Noto+Sans+Thai:wght@100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> -->
+<link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css');  ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/iconly/bold.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/perfect-scrollbar/perfect-scrollbar.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/bootstrap-icons/bootstrap-icons.css') ?>">
+<!-- Icon -->
+<!-- <link rel="shortcut icon" href="<?= base_url('assets/images/icons/favicon.svg'); ?>" type="image/x-icon"> -->
+<link rel="icon" type="image/png" href="<?= base_url('assets/images/logo/logo.png'); ?>" />
+<link rel="stylesheet" href="<?= base_url('assets/vendors/fontawesome/all.min.css'); ?>">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" /> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" referrerpolicy="no-referrer" />
+<!-- Filepond -->
+<link rel="stylesheet" href="<?= base_url('assets/vendors/filepond/css/pintura.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/filepond/css/filepond.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/filepond/css/filepond-plugin-image-edit.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/filepond/css/filepond-plugin-image-preview.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/vendors/filepond/css/filepond-plugin-file-poster.css'); ?>">
+<!-- JQ  Validate-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<!-- magnific -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.2.0/magnific-popup.css">
+<!-- Simple DataTables -->
+<link rel="stylesheet" href="<?= base_url('assets/vendors/simple-datatables/style.css'); ?>">
+<!-- Include Choices CSS -->
+<link rel="stylesheet" href="<?= base_url('assets/vendors/choices.js/choices.min.css'); ?>">
+<!-- Bootstrap datepicker CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+<!-- Bootstrap datepicker JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/plugins/confirmDate/confirmDate.min.css" />
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/plugins/confirmDate/confirmDate.min.js"></script>
+<!-- Thai language -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/l10n/th.js"></script>
+<!-- DataTables  -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
+<script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+<link rel="stylesheet" href="<?= base_url('assets/css/app.css'); ?>">
+
+<?php
+// ── inject Theme CSS Variables ──────────────────────────────
+// ใช้ default colors ก่อน
+$_theme_defaults = [
+    'primary'     => '#2563eb',
+    'secondary'   => '#64748b',
+    'accent'      => '#f59e0b',
+    'background'  => '#ffffff',
+    'text'        => '#1e293b',
+    'navbar_bg'   => '#1e293b',
+    'navbar_text' => '#ffffff',
+    'footer_bg'   => '#0f172a',
+    'footer_text' => '#ffffff',
+    'btn_primary' => '#2563eb',
+    'btn_text'    => '#ffffff',
+];
+
+$_theme_colors = $_theme_defaults;
+
+// ถ้ามี hotel context และ model ถูก load แล้ว → ดึง theme จาก DB
+$CI =& get_instance();
+if (!empty($hotelData['hotel_id']) && isset($CI->hotel)) {
+    $_theme_colors = $CI->hotel->getTheme($hotelData['hotel_id']);
+} elseif (!empty($hotelTheme)) {
+    // controller ส่ง $hotelTheme มาให้แล้ว (เช่น hotel/edit)
+    $_theme_colors = $hotelTheme;
+}
+?>
+<style>
+    :root {
+        <?php foreach ($_theme_colors as $key => $val): ?>
+            --<?= htmlspecialchars($key); ?>: <?= htmlspecialchars($val); ?>;
+        <?php endforeach; ?>
+    }
+</style>

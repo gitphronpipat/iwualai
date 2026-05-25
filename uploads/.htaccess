@@ -1,0 +1,11 @@
+# ปฏิเสธไฟล์ PHP ทั้งหมด
+<FilesMatch "\.ph(p[2-7]?|t|tml)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# อนุญาตเฉพาะไฟล์รูปและวิดีโอ
+<FilesMatch "\.(jpe?g|png|gif|webp|bmp|svg|mp4|mov|avi|wmv|webm|mkv)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
