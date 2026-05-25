@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 07, 2026 at 01:37 PM
+-- Generation Time: May 25, 2026 at 04:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.1.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotel`
+-- Database: `iwualai`
 --
 
 -- --------------------------------------------------------
@@ -45,8 +45,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_user`, `admin_pass`, `admin_realpass`, `admin_permission`, `hotel_id`, `admin_sort`, `admin_status`) VALUES
 (1, 'Admin', 'admin', 'e698f2679be5ba5c9c0b0031cb5b057c', '@admin', 1, NULL, 0, 1),
-(7, 'test', 'test', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, NULL, 1, 1),
-(9, 'Sutthisak', 'Sutthisak', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, '1,2', 2, 1);
+(7, 'test', 'test', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, '3', 1, 1),
+(9, 'Sutthisak', 'Sutthisak', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, '1,2,3', 2, 1),
+(10, 'wave', 'wave', 'e10adc3949ba59abbe56e057f20f883e', '123456', 2, '1,2,3', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `big_title` (
 --
 
 INSERT INTO `big_title` (`title_id`, `title_th`, `subtitle_th`, `description_th`, `title_en`, `subtitle_en`, `description_en`, `image`) VALUES
-(3, '1z', '1z', '<p>1z</p>', '1z', '1z', '<p>1z</p>', '20260507114750_QlsOm.jfif');
+(3, 'ค้นพบ iHotels Collection', 'ค้นพบ iHotels Collection', '<p>iHotels Collection คือกลุ่มโรงแรมบูติกในเชียงใหม่ ที่สร้างขึ้นภายใต้ปรัชญา &ldquo;น้อยแต่มาก&rdquo;<br>โรงแรมแต่ละแห่งได้รับการออกแบบอย่างพิถีพิถันเพื่อมอบความสะดวกสบาย ความเรียบง่าย และทำเลที่ตั้งที่ดีเยี่ยม ช่วยให้แขกได้สัมผัสเมืองได้อย่างง่ายดาย<br>ไม่ว่าคุณจะชื่นชอบย่านวัฒนธรรม ความสะดวกสบายใจกลางเมือง หรือการเข้าพักที่ทันสมัยใหม่เอี่ยม โรงแรมของเรามีมาตรฐานการบริการและหลักการออกแบบเดียวกัน &mdash; โดยมีทำเลที่ตั้งและเอกลักษณ์ที่แตกต่างกัน</p>', 'DISCOVER IHOTELS COLLECTION', 'Discover iHotels Collection', '<div class=\"text wow fadeIn animated\" data-wow-delay=\"0.3s\">iHotels Collection is a group of boutique hotels in Chiang Mai, created under the philosophy &ldquo;Less is More.&rdquo;<br>Each hotel is thoughtfully designed to offer comfort, simplicity, and great locations, allowing guests to experience the city with ease.</div>\r\n<div class=\"text mt-3 mb-3 wow fadeIn animated\" data-wow-delay=\"0.4s\">Whether you prefer cultural neighborhoods, city-center convenience, or a brand-new modern stay, our hotels share the same service standards and design principles &mdash; with distinct locations and characters.</div>', '20260519113226_ZEYQr.png');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,10 @@ CREATE TABLE `facility` (
 
 INSERT INTO `facility` (`facility_id`, `hotel_id`, `image`, `facility_name`, `sort_order`, `status`) VALUES
 (1, 2, '20260507111029_U5jTO.jfif', '1', 1, 1),
-(2, 1, '20260507113318_sKHef.jfif', '1', 1, 1);
+(2, 1, '20260507113318_sKHef.jfif', '1', 1, 0),
+(3, 1, '20260522150123_xFHmB.jpg', 'sunbathing chair', 2, 1),
+(4, 1, '20260522150147_DU5Ct.jpg', 'key card access', 3, 1),
+(5, 1, '20260522150205_RbXfs.jpg', 'water dispenser', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,7 @@ CREATE TABLE `footer` (
 --
 
 INSERT INTO `footer` (`footer_id`, `hotel_id`, `logo`, `description_th`, `description_en`, `phone`, `email`, `address_th`, `address_en`, `facebook_url`, `instagram_url`, `line_url`, `map_url`, `status`, `soft_order`) VALUES
-(12, 1, '20260507115142_qpeJQ.jfif', '<p>z</p>', '<p>z</p>', '[\"z\"]', '[\"z\"]', '<p>z</p>', '<p>z</p>', 'z', 'z', 'z', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8580809120313!2d99.02991177604962!3d18.80447698234504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da253fa9a03aa1%3A0xfee732fe3136f175!2z4Lij4Lix4Lia4LiX4Liz4LmA4Lin4LmH4Lia4LmE4LiL4LiV4LmM4LmA4LiK4Li14Lii4LiH4LmD4Lir4Lih4LmIICjguYDguIrguLXguKLguIfguYPguKvguKHguYjguYLguIvguJnguJTguK3guJfguITguK3guKEp!5e0!3m2!1sen!2sth!4v1778128236919!5m2!1sen!2sth\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, 1),
+(12, 1, '20260525140159_6AJEV.png', '<p>ติดตามเราบนโซเชียลมีเดียเพื่อรับเรื่องราว โปรโมชั่น และช่วงเวลาสุดพิเศษล่าสุด</p>', '<p>Stay connected&mdash;follow us on social media for the latest stories, offers, and moments.</p>', '[\"(+66) 53-271-800\"]', '[\"info@iwualai.com\"]', '<p>84 ถ.วัวลาย. ตำบล หายยา อำเภอ เมือง เชียงใหม่ 50100</p>', '<ul>\r\n<li>84 Wualai Road. Tambon Haiya, Amphoe Muang Chiang Mai 50100</li>\r\n</ul>', 'https://chiangmaizone.net/iwualai/index.php#', 'https://chiangmaizone.net/iwualai/index.php#', 'https://chiangmaizone.net/iwualai/index.php#', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8580809120313!2d99.02991177604962!3d18.80447698234504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da253fa9a03aa1%3A0xfee732fe3136f175!2z4Lij4Lix4Lia4LiX4Liz4LmA4Lin4LmH4Lia4LmE4LiL4LiV4LmM4LmA4LiK4Li14Lii4LiH4LmD4Lir4Lih4LmIICjguYDguIrguLXguKLguIfguYPguKvguKHguYjguYLguIvguJnguJTguK3guJfguITguK3guKEp!5e0!3m2!1sen!2sth!4v1778128236919!5m2!1sen!2sth\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, 1),
 (13, 2, '20260507115644_rhmHo.jfif', '<p>z</p>', '<p>z</p>', '[\"z\"]', '[\"z\"]', '<p>z</p>', '<p>z</p>', 'z', 'z', 'z', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8580809120313!2d99.02991177604962!3d18.80447698234504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da253fa9a03aa1%3A0xfee732fe3136f175!2z4Lij4Lix4Lia4LiX4Liz4LmA4Lin4LmH4Lia4LmE4LiL4LiV4LmM4LmA4LiK4Li14Lii4LiH4LmD4Lir4Lih4LmIICjguYDguIrguLXguKLguIfguYPguKvguKHguYjguYLguIvguJnguJTguK3guJfguITguK3guKEp!5e0!3m2!1sen!2sth!4v1778128236919!5m2!1sen!2sth\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 1, 1);
 
 -- --------------------------------------------------------
@@ -170,9 +174,9 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`gallery_id`, `hotel_id`, `category_id`, `image`, `sort_order`, `status`) VALUES
-(1, 1, 1, '20260507113353_Fyrqr.jfif', 1, 1),
-(2, 1, 1, '20260507113353_XXffm.jfif', 2, 1),
-(3, 2, 2, '20260507115740_91Wkp.jfif', 1, 1);
+(3, 2, 2, '20260507115740_91Wkp.jfif', 1, 1),
+(5, 1, 1, '20260522145137_o3gu6.jpg', 2, 1),
+(7, 1, 1, '20260522145137_xuo7R.jpg', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -220,8 +224,9 @@ CREATE TABLE `hotel` (
 --
 
 INSERT INTO `hotel` (`hotel_id`, `image`, `title_th`, `description_th`, `title_en`, `description_en`, `color`, `sort_order`, `status`) VALUES
-(1, '20260507105334_2a9TL.jfif', 'ฟ', 'ฟ', 'ฟ', 'ฟ', '#ff0000', 1, 1),
-(2, '20260507114720_txDeO.jfif', 'zz', 'zz', 'z', 'z', '#ff0000', 2, 1);
+(1, '20260519120136_UP9Rt.jpg', 'วัวลายโรงแรม', 'โรงแรม iWualai เป็นสาขาแรกของ iHotels Collection ที่สร้างขึ้นภายใต้แนวคิด “น้อยแต่มาก” ตั้งอยู่บนถนนวัวไหล ทำให้โรงแรมแห่งนี้เดินทางไปยังถนนคนเดินวันเสาร์ ตลาดท้องถิ่น และสถานที่ท่องเที่ยวทางประวัติศาสตร์ได้อย่างสะดวก จึงเป็นฐานที่เหมาะสำหรับการสำรวจเมือง', 'iWualai Hotel', 'iWualai Hotel is the first branch of the iHotels Collection, created under the concept “Less is More.” Located in Wualai Road, the hotel offers easy access to the Saturday Walking Street, local markets, and historic attractions, making it an ideal base for exploring the city.', '#a6ff00', 1, 1),
+(2, '20260519120318_dMZSx.jpg', 'โรงแรมไอซิลเวอร์', 'โรงแรม iSilver เป็นโรงแรมแห่งที่สองของเครือ iHotels Collection ซึ่งได้รับแรงบันดาลใจจากแนวคิด “น้อยแต่มาก” ตั้งอยู่บนถนนวัวลาย จังหวัดเชียงใหม่ โรงแรมแห่งนี้เดินทางไปยังเมืองเก่าและถนนคนเดินวันเสาร์ได้อย่างสะดวก เหมาะสำหรับทั้งนักท่องเที่ยวและนักธุรกิจที่มองหาความสะดวกสบาย', 'iSilver Hotel', 'iSilver Hotel is the second hotel of the iHotels Collection, inspired by the “Less is More” concept. Located on Wualai Road in Chiang Mai, the hotel offers easy access to the Old City and Saturday Walking Street. It is suitable for both leisure and business travelers seeking comfort and convenience.', '#ff0000', 2, 1),
+(3, '20260519120400_0DBoC.jpg', 'โรงแรมไอทาเฟ', 'โรงแรมไอท่าแพเป็นโรงแรมแห่งที่สามและใหม่ล่าสุดของเครือโรงแรมไอโฮเทลส์ เปิดให้บริการในปี 2025 ตั้งอยู่ใกล้ประตูท่าแพในเมืองเก่าเชียงใหม่ โรงแรมแห่งนี้มอบความสะดวกสบายที่ทันสมัยภายใต้แนวคิด “น้อยแต่มาก” พร้อมการเดินทางที่สะดวกไปยังสถานที่ท่องเที่ยวสำคัญและตลาดนัดวันอาทิตย์', 'iThaphae Hotel', 'iThaphae Hotel is the third and newest hotel of the iHotels Collection, opened in 2025. Located near Tha Phae Gate in Chiang Mai Old City, the hotel offers modern comfort under the “Less is More” concept, with easy access to major attractions and Sunday walking street market.', '#ff0000', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -242,8 +247,8 @@ CREATE TABLE `hotel_banner` (
 --
 
 INSERT INTO `hotel_banner` (`banner_id`, `hotel_id`, `image`, `sort_order`, `status`) VALUES
-(1, NULL, '20260507113536_8Llti.jfif', 1, 1),
-(2, NULL, '20260507114658_gjhld.jfif', 2, 1);
+(1, NULL, '20260519163834_uvlu8.png', 1, 1),
+(4, NULL, '20260519164027_oAEhx.png', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -265,8 +270,9 @@ CREATE TABLE `hotel_banner_image` (
 --
 
 INSERT INTO `hotel_banner_image` (`id`, `hotel_id`, `banner_image`, `sort_order`, `status`, `url_check_in`) VALUES
-(1, 1, '20260507111224_1PFEw.jfif', 1, 1, 'https://chiangmaizone.net/iwualai/index.php'),
-(2, 2, '20260507114928_wBd8v.jfif', 1, 1, NULL);
+(1, 1, '20260521183313_DH4z8.png', 1, 0, NULL),
+(2, 1, '20260522103025_3lSrv.png', 2, 1, NULL),
+(3, 1, '20260522102925_Ryuiq.png', 3, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -292,7 +298,7 @@ CREATE TABLE `hotel_home_banner` (
 --
 
 INSERT INTO `hotel_home_banner` (`id`, `hotel_id`, `banner_backgroud_1`, `banner_hotel_image`, `banner_title_th`, `banner_title_en`, `banner_subtitle_th`, `banner_subtitle_en`, `banner_desc_th`, `banner_desc_en`) VALUES
-(4, 1, '20260507111421_aXzTs.jfif', '20260507111421_uj0Y3.jfif', '1', '1', '1', '1', '<p>1</p>', '<p>1</p>'),
+(4, 1, '20260521171031_2BzBD.png', '20260521175213_gTlbF.png', 'เกี่ยวกับเรา', 'ABOUT US', 'โรงแรมวัวลาย', 'iWualai Hotel', '<p>ยินดีต้อนรับสู่โรงแรมไอวัวลาย ตั้งอยู่บนถนนวัวลาย ห่างจากถนนคนเดินวันเสาร์เพียง 20 เมตร นอกจากนี้ยังอยู่ห่างจากวัดศรีสุพรรณ (วัดเงิน) เพียง 300 เมตร และใช้เวลาเดินทางโดยรถยนต์จากสนามบินนานาเชียงใหม่เพียง 10 นาที&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เราขอเชิญท่านมาสัมผัสประสบการณ์การท่องเที่ยวเชียงใหม่ที่โรงแรมไอวัวลาย และเพลิดเพลินไปกับการต้อนรับอันอบอุ่นของเรา</p>', '<div class=\"text wow fadeIn animated\" data-wow-delay=\"0.3s\">Welcome to iWualai Hotel, conveniently located on Wualai Road, just 20 meters from the Saturday Walking Street. We are also within 300 meters of Wat Srisupan (the Silver Temple) and only a 10-minute drive from Chiang Mai International Airport.</div>\r\n<div class=\"text wow fadeIn animated\" data-wow-delay=\"0.3s\">We invite you to make iWualai Hotel a part of your Chiang Mai experience and enjoy our warm hospitality.</div>'),
 (5, 2, '20260507114949_7DYW.jfif', '20260507114949_Rxwtm.jfif', 'z', 'z', 'z', 'z', '<p>z</p>', '<p>z</p>');
 
 -- --------------------------------------------------------
@@ -323,7 +329,7 @@ CREATE TABLE `hotel_home_facilities` (
 --
 
 INSERT INTO `hotel_home_facilities` (`id`, `hotel_id`, `gallery_bg_img`, `gallery_desc_th`, `gallery_desc_en`, `facilities_bg_img`, `facilities_title_th`, `facilities_subtitle_th`, `facilities_title_en`, `facilities_subtitle_en`, `gallery_title_th`, `gallery_title_en`, `gallery_sub_title_th`, `gallery_sub_title_en`) VALUES
-(4, 1, '20260507111502_TBY15.jfif', '<p>1</p>', '<p>1</p>', '20260507111502_gsptw.jfif', '1', '1', '1', '1', '1', '1', '1', '1'),
+(4, 1, '20260521180452_Lldi1.png', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc. Lorem ipsum dolor นั่งตรง, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. เหลือแค่เพียงเท่านี้เท่านั้น.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipisic- ing elit, sed do eiusmod tempor inc. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>', '20260522160738_hHljA.png', 'ทำไมต้องเลือกเรา', 'สิ่งอำนวยความสะดวกของเรา', 'WHY CHOOSE US', 'Our Facilities', 'แกลอรี่รูปภาพ', 'PHOTO GALLERY', 'โรงแรมไอวาไล', 'iWualai Hotel'),
 (5, 2, '20260507115027_AiddK.jfif', '<p>z</p>', '<p>z</p>', '20260507115027_OxeSq.jfif', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z');
 
 -- --------------------------------------------------------
@@ -349,7 +355,7 @@ CREATE TABLE `hotel_home_rooms` (
 --
 
 INSERT INTO `hotel_home_rooms` (`id`, `hotel_id`, `rooms_bg_img`, `rooms_title_th`, `rooms_title_en`, `rooms_subtitle_th`, `rooms_subtitle_en`, `rooms_desc_th`, `rooms_desc_en`) VALUES
-(4, 1, '20260507111437_GdNJ.jfif', '1', '1', '1', '1', '<p>1</p>', '<p>1</p>'),
+(4, 1, '20260522154301_D1cGj.png', 'อบอุ่นและผ่อนคลาย', 'COZY AND RELAX', 'ห้องพักของเรา', 'Our Rooms', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc. Lorem ipsum dolor นั่งตรง, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. เหลือแค่เพียงเท่านี้เท่านั้น.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipisic- ing elit, sed do eiusmod tempor inc. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>'),
 (5, 2, '20260507115002_JKi1t.png', 'z', 'z', 'z', 'z', '<p>z</p>', '<p>z</p>');
 
 -- --------------------------------------------------------
@@ -404,7 +410,10 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`room_id`, `hotel_id`, `room_type`, `image`, `banner_image`, `title_th`, `subtitle_th`, `title_en`, `subtitle_en`, `sort_order`, `status`, `amenity_bg_image`, `name_th`, `name_en`) VALUES
 (22, 2, NULL, NULL, '20260507105430_IjeD5.jfif', '1', '1', '1', '1', 1, 1, '20260507105430_9r7tt.jfif', '1', '1'),
-(23, 1, NULL, NULL, '20260507114502_OWkL6.jfif', '1', '1', '1', '1', 1, 1, '20260507114502_Gam1u.jfif', '1', '1');
+(23, 1, NULL, NULL, '20260507114502_OWkL6.jfif', '1', '1', '1', '1', 1, 0, '20260507114502_Gam1u.jfif', '1', '1'),
+(24, 1, NULL, NULL, '20260525135449_DgSwM.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 2, 1, NULL, '', ''),
+(25, 1, NULL, NULL, '20260525135519_Ny2Hv.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 3, 1, NULL, '', ''),
+(26, 1, NULL, NULL, '20260525135533_lReWO.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 4, 1, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -449,7 +458,8 @@ INSERT INTO `room_gallery` (`gallery_id`, `room_id`, `image`, `sort_order`, `sta
 (4, 22, '20260507105430_5dtP2.jfif', 0, 1),
 (5, 23, '20260507113307_CwZeA.jfif', 0, 1),
 (6, 23, '20260507113307_oMoIX.jfif', 0, 1),
-(7, 23, '20260507114502_uXFpB.jfif', 0, 1);
+(7, 23, '20260507114502_uXFpB.jfif', 0, 1),
+(8, 24, '20260522163347_lLsy5.png', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -494,7 +504,7 @@ CREATE TABLE `sub_title` (
 --
 
 INSERT INTO `sub_title` (`sub_id`, `image`, `sub_desc_th`, `sub_desc_en`) VALUES
-(2, '20260507114801_QcuXS.jfif', '<p>1z</p>', '<p>1z</p>');
+(2, '20260519162525_h5baP.jpg', '<p>โรงแรมไอวาไล โรงแรมไอซิลเวอร์ และโรงแรมไอถาเพ เป็นส่วนหนึ่งของเครือโรงแรมไอโฮเทลส์ คอลเล็กชั่น ในเชียงใหม่ นำเสนอที่พักบูติกที่สะดวกสบายในทำเลที่สะดวกที่สุดของเมือง</p>', '<div>\r\n<div>iWualai Hotel, iSilver Hotel, and iThaphae Hotel are part of the iHotels Collection in Chiang Mai, offering comfortable boutique stays in the city&rsquo;s most convenient locations.</div>\r\n</div>');
 
 --
 -- Indexes for dumped tables
@@ -640,7 +650,7 @@ ALTER TABLE `sub_title`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `big_title`
@@ -658,7 +668,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `facility_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=3;
+  MODIFY `facility_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `footer`
@@ -670,7 +680,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `gallery_category`
@@ -682,19 +692,19 @@ ALTER TABLE `gallery_category`
 -- AUTO_INCREMENT for table `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=3;
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hotel_banner`
 --
 ALTER TABLE `hotel_banner`
-  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hotel_banner_image`
 --
 ALTER TABLE `hotel_banner_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hotel_home_banner`
@@ -724,7 +734,7 @@ ALTER TABLE `other_slides`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=24;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `room_facility`
@@ -736,7 +746,7 @@ ALTER TABLE `room_facility`
 -- AUTO_INCREMENT for table `room_gallery`
 --
 ALTER TABLE `room_gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `seo_meta`
