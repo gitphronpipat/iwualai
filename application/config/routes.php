@@ -115,6 +115,9 @@ $route['api/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any
 // Frontend
 $route[] = $route['default_controller'] . '/index';
 $route['(:any)/room'] = $route['default_controller'] . '/room/$1';
+$route['(:any)/facilities'] = $route['default_controller'] . '/facilities/$1';
+$route['(:any)/room'] = $route['default_controller'] . '/room/$1';
+$route['(:any)/room'] = $route['default_controller'] . '/room/$1';
 
 $route['(:any)'] = $route['default_controller'] . '/hotel_index/$1';
 // $route['(:any)/(:any)/contact'] = $route['default_controller'] . '/hotel_contact/$1';

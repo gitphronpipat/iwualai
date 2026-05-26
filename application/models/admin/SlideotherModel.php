@@ -19,6 +19,14 @@ class SlideotherModel extends CI_Model
 		return $this->db->get($this->_table)->row_array();
 	}
 
+	public function getHotelsslideotherfront($hotel_id = null)
+	{
+		if ($hotel_id) {
+			$this->db->where('hotel_id', $hotel_id);
+		}
+		return $this->db->get($this->_table)->row_array();
+	}
+
     public function getByHotelId($hotel_id)
     {
         return $this->db->where('hotel_id', $hotel_id)->get($this->_table)->row_array();

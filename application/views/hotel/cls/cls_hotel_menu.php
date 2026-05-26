@@ -78,18 +78,21 @@
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link btn-secondary " href="<?=base_url('room.php')?>">Rooms</a>
+                            <a class="nav-link btn-secondary" 
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/room') ?>">Rooms</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link btn-secondary " href="<?=base_url('facilities.php')?>">FACILITIES</a>
+                            <a class="nav-link btn-secondary " 
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/facilities') ?>">FACILITIES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-secondary "  href="<?=base_url('gallery.php')?>">GALLERY</a>
+                            <a class="nav-link btn-secondary "  
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/gallery') ?>">GALLERY</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-secondary " 
-							href="<?= base_url(str_replace(' ', '-', strtolower($hotel['title_en'])) . '/hotel_contact') ?>">CONTACT</a>
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/contact') ?>">CONTACT</a>
                         </li>
                         
                     </ul>
