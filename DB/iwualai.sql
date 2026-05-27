@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 25, 2026 at 04:20 PM
+-- Generation Time: May 27, 2026 at 09:52 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.1.0
 
@@ -174,9 +174,7 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`gallery_id`, `hotel_id`, `category_id`, `image`, `sort_order`, `status`) VALUES
-(3, 2, 2, '20260507115740_91Wkp.jfif', 1, 1),
-(5, 1, 1, '20260522145137_o3gu6.jpg', 2, 1),
-(7, 1, 1, '20260522145137_xuo7R.jpg', 4, 1);
+(3, 2, 2, '20260507115740_91Wkp.jfif', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +270,8 @@ CREATE TABLE `hotel_banner_image` (
 INSERT INTO `hotel_banner_image` (`id`, `hotel_id`, `banner_image`, `sort_order`, `status`, `url_check_in`) VALUES
 (1, 1, '20260521183313_DH4z8.png', 1, 0, NULL),
 (2, 1, '20260522103025_3lSrv.png', 2, 1, NULL),
-(3, 1, '20260522102925_Ryuiq.png', 3, 1, NULL);
+(3, 1, '20260522102925_Ryuiq.png', 3, 1, NULL),
+(4, 2, '20260526170911_YFYRN.jpg', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -378,8 +377,8 @@ CREATE TABLE `other_slides` (
 --
 
 INSERT INTO `other_slides` (`other_slide_id`, `hotel_id`, `img_room`, `img_facilities`, `img_gallery`, `img_contact`) VALUES
-(11, 1, '20260507105531_wscEW.png', '20260507105531_yCkFf.jfif', '20260507105531_GYGqn.jfif', '20260507105531_h2b91.jfif'),
-(12, 2, '20260507114851_IeOIe.jfif', '20260507114851_iWgrT.jfif', '20260507114851_NPsM4.jfif', '20260507114851_L3NIa.jfif');
+(11, 1, '20260526090902_WyP8R.jpg', '20260507105531_yCkFf.jfif', '20260507105531_GYGqn.jfif', '20260507105531_h2b91.jfif'),
+(12, 2, '20260526170808_FWhc2.jpg', '20260507114851_iWgrT.jfif', '20260507114851_NPsM4.jfif', '20260507114851_L3NIa.jfif');
 
 -- --------------------------------------------------------
 
@@ -410,10 +409,11 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`room_id`, `hotel_id`, `room_type`, `image`, `banner_image`, `title_th`, `subtitle_th`, `title_en`, `subtitle_en`, `sort_order`, `status`, `amenity_bg_image`, `name_th`, `name_en`) VALUES
 (22, 2, NULL, NULL, '20260507105430_IjeD5.jfif', '1', '1', '1', '1', 1, 1, '20260507105430_9r7tt.jfif', '1', '1'),
-(23, 1, NULL, NULL, '20260507114502_OWkL6.jfif', '1', '1', '1', '1', 1, 0, '20260507114502_Gam1u.jfif', '1', '1'),
-(24, 1, NULL, NULL, '20260525135449_DgSwM.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 2, 1, NULL, '', ''),
-(25, 1, NULL, NULL, '20260525135519_Ny2Hv.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 3, 1, NULL, '', ''),
-(26, 1, NULL, NULL, '20260525135533_lReWO.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 4, 1, NULL, '', '');
+(24, 1, NULL, '20260526154235_pPqwk.jpg', '20260525135449_DgSwM.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Double Room', '', 1, 1, '20260526145344_RqT8B.png', '', ''),
+(25, 1, NULL, NULL, '20260525135519_Ny2Hv.png', 'ห้องครอบครัวมาตรฐาน', '', 'Standard Family Room', '', 2, 1, '20260526101257_lb3J6.png', '', ''),
+(26, 1, NULL, NULL, '20260526152112_474Mq.png', 'ห้องพักมาตรฐานสำหรับสี่ท่าน', '', 'Standard Quadruple Room', '', 3, 1, '20260526145247_ybdrv.png', '', ''),
+(38, 1, NULL, NULL, '20260526152134_UMSpz.png', 'ห้องพักสามเตียงมาตรฐาน', '', 'Standard Triple Room', '', 4, 1, '20260526105630_xbiR2.png', '', ''),
+(39, 1, NULL, NULL, '20260526105708_4hqBg.png', 'ห้องพักเตียงคู่มาตรฐาน', '', 'Standard Twin Room', '', 5, 1, '20260526151955_Tf5up.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -433,7 +433,12 @@ CREATE TABLE `room_facility` (
 
 INSERT INTO `room_facility` (`id`, `room_id`, `name`) VALUES
 (1, 22, '1'),
-(3, 23, '1');
+(40, 24, 'Air Conditionar'),
+(41, 24, 'Swiming Pool'),
+(42, 24, 'Gymnasium'),
+(43, 24, 'Parking'),
+(44, 24, 'Security'),
+(45, 24, 'Playground');
 
 -- --------------------------------------------------------
 
@@ -456,10 +461,24 @@ CREATE TABLE `room_gallery` (
 INSERT INTO `room_gallery` (`gallery_id`, `room_id`, `image`, `sort_order`, `status`) VALUES
 (3, 22, '20260507105430_zipUZ.jfif', 0, 1),
 (4, 22, '20260507105430_5dtP2.jfif', 0, 1),
-(5, 23, '20260507113307_CwZeA.jfif', 0, 1),
-(6, 23, '20260507113307_oMoIX.jfif', 0, 1),
-(7, 23, '20260507114502_uXFpB.jfif', 0, 1),
-(8, 24, '20260522163347_lLsy5.png', 0, 1);
+(11, 26, '20260526103619_YIKb7.png', 0, 1),
+(17, 24, '20260527091625_2ljQv.png', 0, 1),
+(18, 24, '20260527091625_VtlwF.png', 0, 1),
+(19, 24, '20260527091626_fxbpt.png', 0, 1),
+(20, 24, '20260527091626_LTZjv.jpg', 0, 1),
+(21, 24, '20260527091626_xufsf.png', 0, 1),
+(22, 24, '20260527091627_XX47b.jpg', 0, 1),
+(23, 24, '20260527091627_6Rew7.jpg', 0, 1),
+(24, 24, '20260527091627_ekF5R.jpg', 0, 1),
+(25, 24, '20260527091627_5hZWY.jpg', 0, 1),
+(26, 24, '20260527091627_03L1o.png', 0, 1),
+(27, 24, '20260527091627_ABMIk.png', 0, 1),
+(28, 24, '20260527091628_s2Qp9.png', 0, 1),
+(29, 24, '20260527091628_kw8Jb.png', 0, 1),
+(30, 24, '20260527091629_LscJe.png', 0, 1),
+(31, 24, '20260527091629_bXTwV.png', 0, 1),
+(32, 24, '20260527091629_TkjQk.png', 0, 1),
+(34, 24, '20260527094119_6GKNF.png', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -680,7 +699,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `gallery_category`
@@ -704,7 +723,7 @@ ALTER TABLE `hotel_banner`
 -- AUTO_INCREMENT for table `hotel_banner_image`
 --
 ALTER TABLE `hotel_banner_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hotel_home_banner`
@@ -734,19 +753,19 @@ ALTER TABLE `other_slides`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=37;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary key', AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `room_facility`
 --
 ALTER TABLE `room_facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `room_gallery`
 --
 ALTER TABLE `room_gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `seo_meta`

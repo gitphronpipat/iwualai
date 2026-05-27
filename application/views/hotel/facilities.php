@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <?php
-        include"include/function.php";
+        $this->load->view('hotel/cls/cls_hotel_function');
         css_function();
         ?>
     </head>
     <body class="dark_bg">
-        <?php include("include/menu.php"); ?>
+        <?php $this->load->view('hotel/cls/cls_hotel_menu'); ?>
         <section class="page-title" style="background-image: url(images/home/page-title-bg.png);">
             <div class="container">
                 <div class="title-outer text-center">

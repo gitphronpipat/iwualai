@@ -44,7 +44,7 @@
             <div class="row align-items-lg-center">
                 <div class="col-xl-5">
                     <div class="title-box">
-                        <div class="sub-title wow fadeIn animated" data-wow-delay="0.1s">
+                        <div class="sub-title wow fadeIn animated" data-wow-delay="0.1s" >
 								<? if ($this->session->userdata('lang') == 'en'): ?>
 									<?php echo 'Rooms' ?? ''; ?>
 								<? else: ?>
@@ -163,8 +163,8 @@
 							<?php foreach ($room_gallery as $gallery): ?>
 							<div class="mItem">
 								<div class="service-thumb">
-									<a href="<?= base_url('uploads/room/' . $gallery['image']) ?>" class="img-link">
-										<img src="<?= base_url('uploads/room/' . $gallery['image']) ?>" alt="" class="img-responsive" width="100%">
+									<a href="<?= base_url('uploads/room_gallery/' . $gallery['image']) ?>" class="img-link">
+										<img src="<?= base_url('uploads/room_gallery/' . $gallery['image']) ?>" alt="" class="img-responsive" width="100%">
 									</a>
 								</div>
 							</div>
@@ -226,6 +226,55 @@
         max-width: -webkit-fill-available;
         border: 1px solid #fff;
     }
+	.page-breadcrumb li a {
+    color: <?php echo $hotel['color'] ?>;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.page-breadcrumb li:after {
+    position: absolute;
+    content: "/";
+    right: -6px;
+    top: 1px;
+    color: <?php echo $hotel['color'] ?>;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.sub-title:before {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 45px;
+    background: <?php echo $hotel['color'] ?>;
+    left: 0;
+    bottom: 7px;
+}
+
+.sub-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 1.6em;
+    color: <?php echo $hotel['color'] ?>;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-left: 53px;
+    padding-right: 53px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
+
+.icon i {
+    color: <?php echo $hotel['color'] ?>;
+}
     </style>
      <?php $this->load->view('hotel/cls/cls_hotel_footer'); ?>
     <?php script_function(); ?>
