@@ -14,6 +14,13 @@
     </symbol>
 </svg>
 
+<style>
+	.main-header .menu-right-content .btn-box a {
+    color: #fff !important;
+    background: <?php echo $hotel['color'] ?>;
+}
+</style>
+
 <div class="topbar-one d-none d-xl-block">
     <div class="topbar-one__contaner container-fluid fluid">
         <div class="topbar-one__inner">
@@ -114,7 +121,7 @@
                         
                         
                         <div class="btn-box d-none d-lg-block text-center">
-                            <a href="https://hotels.cloudbeds.com/reservation/DLSe72" style="background-color: <?= $hotel['color'] ?>;"> 
+                            <a href="https://hotels.cloudbeds.com/reservation/DLSe72"> 
 								Book now 
 								</a>
                         </div>
@@ -124,3 +131,4 @@
         </div>
     </nav>
 </header>
+

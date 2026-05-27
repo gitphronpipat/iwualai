@@ -62,6 +62,85 @@
 
 								<div class="row bg-light p-4 rounded border mb-3">
 									<h5 class="mb-3 text-primary col-12">
+										<i class="fas fa-images me-2"></i>รูปภาพ PREVIEW PHOTO GALLERY
+									</h5>
+								<div class="form-group col-6 mb-3">
+										<label class="fw-bold">
+											รูปภาพ Background Gallery
+											<small class="text-muted fw-normal">(ขนาดแนะนำ 400 × 300 px)</small>
+										</label>
+										<?php if (!empty($facilitiesData['pre_gal_one_img'])) : ?>
+											<div class="mb-2">
+												<a href="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_one_img']); ?>" class="img-link">
+													<img src="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_one_img']); ?>"
+														width="200" class="img-thumbnail rounded">
+												</a>
+											</div>
+										<?php else: ?>
+											<span class="text-muted">ไม่มีรูปภาพ</span>
+										<?php endif; ?>
+										<input type="file" name="pre_gal_one_img" id="pre_gal_one_img"
+											class="image-crop-filepond mt-2">
+									</div>
+
+									<div class="form-group col-6 mb-3">
+										<label class="fw-bold">
+											รูปภาพ Background Gallery
+											<small class="text-muted fw-normal">(ขนาดแนะนำ 300 × 200 px)</small>
+										</label>
+										<?php if (!empty($facilitiesData['pre_gal_two_img'])) : ?>
+											<div class="mb-2">
+												<a href="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_two_img']); ?>" class="img-link">
+													<img src="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_two_img']); ?>"
+														width="200" class="img-thumbnail rounded">
+												</a>
+											</div>
+										<?php else: ?>
+											<span class="text-muted">ไม่มีรูปภาพ</span>
+										<?php endif; ?>
+										<input type="file" name="pre_gal_two_img" id="pre_gal_two_img"
+											class="image-crop-filepond mt-2">
+									</div>
+
+									<div class="form-group col-6 mb-3">
+										<label class="fw-bold">
+											รูปภาพ Background Gallery
+											<small class="text-muted fw-normal">(ขนาดแนะนำ 400 × 300 px)</small>
+										</label>
+										<?php if (!empty($facilitiesData['pre_gal_three_img'])) : ?>
+											<div class="mb-2">
+												<a href="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_three_img']); ?>" class="img-link">
+													<img src="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_three_img']); ?>"
+														width="200" class="img-thumbnail rounded">
+												</a>
+											</div>
+										<?php else: ?>
+											<span class="text-muted">ไม่มีรูปภาพ</span>
+										<?php endif; ?>
+										<input type="file" name="pre_gal_three_img" id="pre_gal_three_img"
+											class="image-crop-filepond mt-2">
+									</div>
+
+									<div class="form-group col-6 mb-3">
+										<label class="fw-bold">
+											รูปภาพ Background Gallery
+											<small class="text-muted fw-normal">(ขนาดแนะนำ 300 × 200 px)</small>
+										</label>
+										<?php if (!empty($facilitiesData['pre_gal_four_img'])) : ?>
+											<div class="mb-2">
+												<a href="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_four_img']); ?>" class="img-link">
+													<img src="<?= base_url('uploads/hotel_home/' . $facilitiesData['pre_gal_four_img']); ?>"
+														width="200" class="img-thumbnail rounded">
+												</a>
+											</div>
+										<?php else: ?>
+											<span class="text-muted">ไม่มีรูปภาพ</span>
+										<?php endif; ?>
+										<input type="file" name="pre_gal_four_img" id="pre_gal_four_img"
+											class="image-crop-filepond mt-2">
+									</div>
+
+									<h5 class="mb-3 text-primary col-12">
 										<i class="fas fa-images me-2"></i>รูปภาพ Background Gallery
 									</h5>
 

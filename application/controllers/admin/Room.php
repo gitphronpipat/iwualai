@@ -73,6 +73,8 @@ class Room extends Core_Controller
 			'hotel_id'      => $hotel_id,
 			'amenities_map' => $this->_buildAmenitiesMap($rooms),
 		];
+		
+	
 		$this->load->view('admin/index', $this->_data);
 	}
 
@@ -90,41 +92,51 @@ class Room extends Core_Controller
 	// เพิ่มห้องพัก
 	// ==========================================
 
-	public function add()
-	{
-		$auth          = $this->session->userdata('_auth');
-		$my_permission = isset($auth['admin_permission']) ? (int)$auth['admin_permission'] : null;
-		$admin_id      = isset($auth['admin_id']) ? $auth['admin_id'] : null;
+	public function add($hotel_id = false)
+{
+    // ❌ ลบออก
+    // echo '<pre>';
+    // print_r($hotel_id);
+    // echo '</pre>';
+    // exit;
 
-		$hotel_id = null;
-		$hotels   = [];
+    $auth          = $this->session->userdata('_auth');
+    $my_permission = isset($auth['admin_permission']) ? (int)$auth['admin_permission'] : null;
+    $admin_id      = isset($auth['admin_id']) ? $auth['admin_id'] : null;
 
-		if ($my_permission === 1) {
-			$this->load->model('admin/HotelModel', 'hotel_model');
-			$hotels = $this->hotel_model->getHotels();
-		} else {
-			$this->load->model('admin/HotelModel', 'hotel_model');
-			$permitted = $this->hotel_model->getPermittedHotelIds($admin_id);
-			$hotel_id  = !empty($permitted) ? $permitted[0] : null;
-		}
+    $hotels = [];
 
-		$this->_data = [
-			'title'     => 'เพิ่มห้องพัก',
-			'menu_slug' => 'room',
-			'script'      => 'script_room',
-			'content'   => 'page_room_add',
-			'hotel_id'  => $hotel_id,
-			'hotels'    => $hotels,
-		];
-		$this->load->view('admin/index', $this->_data);
-	}
+    if ($my_permission === 1) {
+        $this->load->model('admin/HotelModel', 'hotel_model');
+        $hotels = $this->hotel_model->getHotels();
+    } else {
+        $this->load->model('admin/HotelModel', 'hotel_model');
+        $permitted = $this->hotel_model->getPermittedHotelIds($admin_id);
+        // ✅ ถ้าไม่มี hotel_id จาก URL ค่อย fallback
+        if (empty($hotel_id)) {
+            $hotel_id = !empty($permitted) ? $permitted[0] : null;
+        }
+    }
 
-	public function create()
+    $this->_data = [
+        'title'     => 'เพิ่มห้องพัก',
+        'menu_slug' => 'room_' . $hotel_id,
+        'script'    => 'script_room',
+        'content'   => 'page_room_add',
+        'hotel_id'  => $hotel_id,
+        'hotels'    => $hotels,
+    ];
+
+    $this->load->view('admin/index', $this->_data);
+}
+
+	public function create($hotel_id = null)
 	{
 		if ($this->input->server('REQUEST_METHOD') !== 'POST') {
 			redirect(admin_url('room'));
 			return;
 		}
+
 		$hotel_id       = $this->input->post('hotel_id') ?: null;
 		$new_sort_order = $this->room->getMaxOrderByHotelId($hotel_id) + 1;
 
@@ -176,7 +188,7 @@ class Room extends Core_Controller
 			$this->session->set_flashdata('message', 'เกิดข้อผิดพลาด ไม่สามารถบันทึกข้อมูลได้');
 		}
 
-		redirect(admin_url('room'));
+		redirect(admin_url('room/index/' . $hotel_id ));
 	}
 
 
@@ -457,10 +469,10 @@ class Room extends Core_Controller
 
 	private function _handleGalleryUpload($room_id)
 	{
-		if (empty($_FILES['gallery_pic']['name'][0])) return;
+		if (empty($_FILES['gallery_pic']['name'][0])) return;	
 
 		$filesCount = count($_FILES['gallery_pic']['name']);
-		$filenames  = upload_fileFix_array('gallery_pic', $filesCount, '800', '533', $this->gallery_path);
+		$filenames  = upload_fileFix_array('gallery_pic', $filesCount, '', '', $this->gallery_path);
 
 		foreach ($filenames as $filename) {
 			if (empty($filename)) continue;

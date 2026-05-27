@@ -245,6 +245,7 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<form id="formEditFacility" action="" method="post" enctype="multipart/form-data" autocomplete="off" novalidate>
+				<input type="hidden" name="hotel_id" id="editHotelId">
 				<div class="modal-header">
 					<h5 class="modal-title"><i class="fas fa-edit me-2 text-warning"></i> แก้ไขสิ่งอำนวยความสะดวก</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>

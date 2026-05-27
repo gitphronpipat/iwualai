@@ -233,16 +233,16 @@
 										</h5>
 
 										<div class="form-group col-lg-6 mb-3">
-											<label>ชื่อห้องพัก (name_th)</label>
+											<label>หัวข้อสิ่งอำนวยความสะดวก (ภาษาไทย)</label>
 											<input type="text" name="name_th" class="form-control"
 												value="<?= htmlspecialchars($roomData['name_th'] ?? ''); ?>"
-												placeholder="เช่น วิวสวนหย่อม, รวมอาหารเช้า">
+												placeholder="">
 										</div>
 										<div class="form-group col-lg-6 mb-3">
-											<label>Room Name (name_en)</label>
+											<label>Facilities Topic (ภาษาอังกฤษ)</label>
 											<input type="text" name="name_en" class="form-control"
 												value="<?= htmlspecialchars($roomData['name_en'] ?? ''); ?>"
-												placeholder="e.g. Scenic View, Breakfast Included">
+												placeholder="">
 										</div>
 
 										<div class="col-md-12">

@@ -11,10 +11,16 @@
         <section class="page-title" style="background-image: url(<?=base_url('images/home/page-title-bg.png')?>)">
             <div class="container">
                 <div class="title-outer text-center">
-                    <h1 class="title">Contact Us</h1>
+                    <h1 class="title">
+						Contact Us
+					</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="<?=base_url('index.php')?>">Home</a></li>
-                        <li>Contact</li>
+                        <li><a href="<?=base_url('index.php')?>">
+							Home
+						</a></li>
+                        <li>
+							Contact
+						</li>
                     </ul>
                 </div>
             </div>
@@ -24,8 +30,12 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="sec-title">
-                            <span class="sub-title before-none">Send us email</span>
-                            <h2>Your email address will not be published. Required fields are marked</h2>
+                            <span class="sub-title before-none">
+								Send us email
+							</span>
+                            <h2>
+								Your email address will not be published. Required fields are marked
+							</h2>
                         </div>
                         <!-- Contact Form -->
                         <form id="contact_form" name="contact_form" action="includes/sendmail.php" method="post" novalidate="novalidate">
@@ -110,7 +120,7 @@
         </section>
         <?php $this->load->view('hotel/cls/cls_hotel_footer'); ?>
         <?php script_function(); ?>
-        <script src="<?=base_url('assets/dist/js/bootstrap.bundle.min.js')?>"></script>
+        <script src="<?=base_url('assets_hotel/assets/dist/js/bootstrap.bundle.min.js')?>"></script>
         
     </body>
 </html>

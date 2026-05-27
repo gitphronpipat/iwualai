@@ -117,6 +117,8 @@ $route[] = $route['default_controller'] . '/index';
 $route['(:any)/room'] = $route['default_controller'] . '/room/$1';
 $route['(:any)/room_details/(:any)'] = $route['default_controller'] . '/room_details/$1/$2';
 $route['(:any)/facilities'] = $route['default_controller'] . '/facilities/$1';
+$route['(:any)/gallery'] = $route['default_controller'] . '/gallery/$1';
+$route['(:any)/contact'] = $route['default_controller'] . '/contact/$1';
 
 $route['(:any)'] = $route['default_controller'] . '/hotel_index/$1';
 // $route['(:any)/(:any)/contact'] = $route['default_controller'] . '/hotel_contact/$1';

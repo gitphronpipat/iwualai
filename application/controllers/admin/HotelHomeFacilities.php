@@ -73,6 +73,60 @@ class HotelHomeFacilities extends Core_Controller
 			}
 		}
 
+				// อัปโหลดรูป Background Gallery (Section 3)
+		if (!empty($_FILES['pre_gal_one_img']['name'])) {
+			$this->_deleteOldImage($hotel_id, 'pre_gal_one_img');
+			$filename = upload_fileFix('pre_gal_one_img', '400', '300', $this->upload_path);
+			if ($filename) {
+				$save['pre_gal_one_img'] = $filename;
+			} else {
+				$this->_flashError('อัปโหลดรูป Preview Gallery ไม่สำเร็จ');
+				redirect(admin_url('hotelhomefacilities/index/' . $hotel_id));
+				return;
+			}
+		}
+
+				// อัปโหลดรูป Background Gallery (Section 3)
+		if (!empty($_FILES['pre_gal_two_img']['name'])) {
+			$this->_deleteOldImage($hotel_id, 'pre_gal_two_img');
+			$filename = upload_fileFix('pre_gal_two_img', '300', '200', $this->upload_path);
+			if ($filename) {
+				$save['pre_gal_two_img'] = $filename;
+			} else {
+				$this->_flashError('อัปโหลดรูป Preview Gallery ไม่สำเร็จ');
+				redirect(admin_url('hotelhomefacilities/index/' . $hotel_id));
+				return;
+			}
+		}
+
+				// อัปโหลดรูป Background Gallery (Section 3)
+		if (!empty($_FILES['pre_gal_three_img']['name'])) {
+			$this->_deleteOldImage($hotel_id, 'pre_gal_three_img');
+			$filename = upload_fileFix('pre_gal_three_img', '400', '300', $this->upload_path);
+			if ($filename) {
+				$save['pre_gal_three_img'] = $filename;
+			} else {
+				$this->_flashError('อัปโหลดรูป Preview Gallery ไม่สำเร็จ');
+				redirect(admin_url('hotelhomefacilities/index/' . $hotel_id));
+				return;
+			}
+		}
+
+				// อัปโหลดรูป Background Gallery (Section 3)
+		if (!empty($_FILES['pre_gal_four_img']['name'])) {
+			$this->_deleteOldImage($hotel_id, 'pre_gal_four_img');
+			$filename = upload_fileFix('pre_gal_four_img', '300', '200', $this->upload_path);
+			if ($filename) {
+				$save['pre_gal_four_img'] = $filename;
+			} else {
+				$this->_flashError('อัปโหลดรูป Preview Gallery ไม่สำเร็จ');
+				redirect(admin_url('hotelhomefacilities/index/' . $hotel_id));
+				return;
+			}
+		}
+
+		
+
 		// อัปโหลดรูป Background Facilities (Section 4)
 		if (!empty($_FILES['facilities_bg_img']['name'])) {
 			$this->_deleteOldImage($hotel_id, 'facilities_bg_img');

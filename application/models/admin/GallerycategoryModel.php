@@ -22,7 +22,7 @@ class GalleryCategoryModel extends CI_Model
     }
 
 	
-    public function _getDatafront($hotel_id = null)
+    public function _getDatagalleryfront($hotel_id = null)
     {
         if ($hotel_id) {
             $this->db->where('hotel_id', $hotel_id);

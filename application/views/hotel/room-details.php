@@ -109,9 +109,9 @@
 					</div>
                     <h2 class="sec-title wow fadeIn animated" data-wow-delay="0.2s">
 								<? if ($this->session->userdata('lang') == 'en'): ?>
-									<?php echo 'Amenities In Rooms' ?? ''; ?>
+									<?php echo $room_details['name_en'] ?? ''; ?>
 								<? else: ?>
-									<?php echo 'สิ่งอำนวยความสะดวกในห้องพัก'  ?? ''; ?>
+									<?php echo $room_details['name_th']  ?? ''; ?>
 								<? endif; ?>
 					</h2>
                 </div>
@@ -274,6 +274,21 @@
 
 .icon i {
     color: <?php echo $hotel['color'] ?>;
+}
+.btn_moredetails {
+    font-family: var(--font-DMSans-Bold) !important;
+    background: <?php echo $hotel['color'] ?>;
+    color: #ffffff;
+    padding: 13px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    border: none;
+    font-weight: inherit;
+    letter-spacing: 1px;
+    position: relative;
+    border-radius: 100px;
+    transition: all 0.25s;
 }
     </style>
      <?php $this->load->view('hotel/cls/cls_hotel_footer'); ?>

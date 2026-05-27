@@ -19,7 +19,6 @@ public function getGalleryByHotelfront($hotel_id)
     $this->db->where('hotel_id', $hotel_id);
     $this->db->where('status', 1);
     $this->db->order_by('sort_order', 'ASC');
-    $this->db->limit(4);
     return $this->db->get($this->table)->result_array(); // table gallery
 }
 

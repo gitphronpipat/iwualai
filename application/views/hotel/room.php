@@ -136,6 +136,7 @@
     background-position: right;
 }
 
+
    </style>
 <?php foreach ($rooms as $key => $room): ?>
 

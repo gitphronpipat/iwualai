@@ -36,7 +36,7 @@
                         <h3>จัดการข้อมูลห้องพัก</h3>
                     </div>
                     <div class="col-6 text-end">
-                        <a href="<?= admin_url('room/add'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มห้องพัก</a>
+                        <a href="<?= admin_url('room/add/' .$hotel_id); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มห้องพัก</a>
                     </div>
                 </div>
             </div>

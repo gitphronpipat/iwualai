@@ -29,7 +29,12 @@ class Facility extends Core_Controller
 
 		$this->load->model('admin/HotelModel', 'hotel_model');
 		$permitted = $this->hotel_model->getPermittedHotelIds($admin_id);
-		return !empty($permitted) ? $permitted[0] : null;
+	// 						    echo '<pre>';
+    // print_r($permitted);
+    // echo '</pre>';
+    // exit;
+
+		return !empty($permitted) ? $permitted : null;
 	}
 
 	private function _getHotels()
@@ -67,7 +72,9 @@ class Facility extends Core_Controller
 		if ($hotel_id) {
 			$hotel_id = (int)$hotel_id;
 		} else {
-			$hotel_id = $this->_getAdminHotelId();
+			 $permitted = $this->_getAdminHotelId();
+        // ✅ เอาตัวแรกจาก array
+        $hotel_id = !empty($permitted) ? (int)$permitted[0] : null;
 		}
 
 		$this->setPageData([
@@ -98,6 +105,10 @@ class Facility extends Core_Controller
 			'sort_order'    => $new_sort_order,
 			'status'        => 1,
 		];
+		// 				    echo '<pre>';
+		// print_r($hotel_id);
+		// echo '</pre>';
+		// exit;
 
 		if (!empty($_FILES['image']['name'])) {
 			$filename = upload_fileFix('image', '380', '400', $this->upload_path);
@@ -128,13 +139,18 @@ class Facility extends Core_Controller
 
 		$hotel_id     = $this->_getAdminHotelId();
 		$facilityData = $this->facility->_getDataID($id);
-
+	// 				    echo '<pre>';
+    // print_r($hotel_id );
+    // echo '</pre>';
+    // exit;
 		if (empty($facilityData)) {
 			redirect(admin_url('facility'));
 			return;
 		}
 
-		if ($hotel_id !== null && $facilityData['hotel_id'] != $hotel_id) {
+		$permitted = $this->_getAdminHotelId();
+
+		if (!empty($permitted) && !in_array((string)$facilityData['hotel_id'], array_map('strval', $permitted))) {
 			$this->session->set_flashdata('result', 'false');
 			$this->session->set_flashdata('message', 'คุณไม่มีสิทธิ์แก้ไขข้อมูลนี้');
 			redirect(admin_url('facility'));
@@ -176,12 +192,14 @@ class Facility extends Core_Controller
 		$hotel_id     = $this->_getAdminHotelId();
 		$facilityData = $this->facility->_getDataID($id);
 
-		if ($hotel_id !== null && (!$facilityData || $facilityData['hotel_id'] != $hotel_id)) {
-			$this->session->set_flashdata('result', 'false');
-			$this->session->set_flashdata('message', 'คุณไม่มีสิทธิ์เปลี่ยนสถานะข้อมูลนี้');
-			redirect(admin_url('facility/index/' . $facilityData['hotel_id']));
-			return;
-		}
+// ✅ status()
+$permitted = $this->_getAdminHotelId();
+if (!empty($permitted) && !in_array((string)$facilityData['hotel_id'], array_map('strval', $permitted))) {
+    $this->session->set_flashdata('result', 'false');
+    $this->session->set_flashdata('message', 'คุณไม่มีสิทธิ์เปลี่ยนสถานะข้อมูลนี้');
+    redirect(admin_url('facility/index/' . $facilityData['hotel_id']));
+    return;
+}
 
 		$result = $this->facility->updateStatus($id, $status);
 		$this->session->set_flashdata('result', $result);
@@ -214,7 +232,9 @@ class Facility extends Core_Controller
 		$hotel_id     = $this->_getAdminHotelId();
 		$facilityData = $this->facility->_getDataID($id);
 
-		if ($hotel_id !== null && (!$facilityData || $facilityData['hotel_id'] != $hotel_id)) {
+// ✅ del()
+		$permitted = $this->_getAdminHotelId();
+		if (!empty($permitted) && !in_array((string)$facilityData['hotel_id'], array_map('strval', $permitted))) {
 			$this->session->set_flashdata('result', 'false');
 			$this->session->set_flashdata('message', 'คุณไม่มีสิทธิ์ลบข้อมูลนี้');
 			redirect(admin_url('facility'));

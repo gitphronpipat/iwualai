@@ -9,6 +9,24 @@
         
     </div>
 </div>
+<style>
+	.footer-section .footer-text .ft-about .fa-social a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    color: #ffffff;
+    background-color: <?php echo $hotel['color'] ?>;
+    border: 1px solid <?php echo $hotel['color'] ?>;
+    border-radius: 50%;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-right: 7px;
+}
+</style>
 <footer class="footer-section">
         <div class="container">
             

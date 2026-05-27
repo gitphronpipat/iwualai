@@ -247,33 +247,34 @@
                     <div class="section_tagline">
                         <ul>
 
-						<?php foreach ($gallery as $i => $img): ?>
+						<!-- <?php foreach ($gallery as $i => $img): ?>
 							<li>
 								<div class="images_photo wow fadeIn" data-wow-delay="<?php echo 0.1 + ($i * 0.1) ?>s">
-									<img src="<?php echo base_url('uploads/gallery/' . $img['image']) ?>" width="100%">
+									<img src="" width="100%">
 								</div>
 							</li>
-						<?php endforeach; ?>
-                            <!-- <li>
+						<?php endforeach; ?> -->
+                            <li>
                                 <div class="images_photo wow fadeIn" data-wow-delay="0.1s">
-                                    <img src="<?php echo base_url('assets_hotel/images/img/61.jpg') ?>" width="100%">
+                                    <img src="<?php echo base_url('uploads/hotel_home/' . $facilities['pre_gal_one_img']) ?>" width="100%">
                                 </div>
                             </li>
                             <li>
                                 <div class="images_photo wow fadeIn" data-wow-delay="0.2s">
-                                    <img src="<?php echo base_url('assets_hotel/images/img/62.jpg') ?>" width="100%">
+                                    <img src="<?php echo base_url('uploads/hotel_home/' . $facilities['pre_gal_two_img']) ?>" width="100%">
                                 </div>
                             </li>
-                            <li>
-                                <div class="images_photo wow fadeIn" data-wow-delay="0.3s">
-                                    <img src="<?php echo base_url('assets_hotel/images/img/63.jpg') ?>" width="100%">
-                                </div>
-                            </li>
+
                             <li>
                                 <div class="images_photo wow fadeIn" data-wow-delay="0.4s">
-                                    <img src="<?php echo base_url('assets_hotel/images/img/64.jpg') ?>" width="100%">
+                                    <img src="<?php echo base_url('uploads/hotel_home/' . $facilities['pre_gal_four_img']) ?>" width="100%">
                                 </div>
-                            </li> -->
+                            </li>
+							                            <li>
+                                <div class="images_photo wow fadeIn" data-wow-delay="0.3s">
+                                    <img src="<?php echo base_url('uploads/hotel_home/' . $facilities['pre_gal_three_img']) ?>" width="100%">
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -368,7 +369,15 @@
 											<img src="<?php echo base_url('uploads/facility/' . $fac['image']) ?>" alt="" width="100%">
 										</div>
 										<div class="content">
-											<h3><a href="#"><?php echo $fac['facility_name'] ?></a></h3>
+											<h3>
+												<a href="#">
+											<?php if ($this->session->userdata('lang') == 'en'): ?>
+												<?= $fac['facility_name'] ?? '' ?>
+											<?php else: ?>
+												<?= $fac['facility_name'] ?? '' ?>
+											<?php endif; ?>
+												</a>
+											</h3>
 										</div>
 									</div>
 								</div>
