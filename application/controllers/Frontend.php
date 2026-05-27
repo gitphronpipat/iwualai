@@ -122,6 +122,7 @@ class Frontend extends CI_Controller
 	}
 
 
+
 public function room($hotel_name = null)
 {
 if ($hotel_name) {
@@ -137,37 +138,59 @@ if ($hotel_name) {
 				? $this->slide_other->getHotelsslideotherfront($hotel_id)
 				: [];
 
-			// $this->_data['about'] = $hotel_id
-			// 	? $this->home_banner->get_bannerfront($hotel_id)
-			// 	: [];
+			$this->_data['rooms'] = $hotel_id      // ข้อมูล title/desc
+				? $this->room->getRoomByIdfront($hotel_id)
+				: [];	
 
-			// $this->_data['banner_img'] = $hotel_id
-			// 	? $this->banner_img->getBannersByHotelIdfront($hotel_id)
-			// 	: [];
+			$this->_data['footer'] = $hotel_id
+				? $this->footer->_getFooterfront($hotel_id) 
+				: [];
 			
-			// $this->_data['room_info'] = $hotel_id
-			// 	? $this->home_rooms->get_roomsfront($hotel_id)
-			// 	: [];
+			// echo '<pre>';
+			// print_r($this->_data);
+			// echo '</pre>';
+			// exit;
+		}
+
+    $this->load->view('hotel/room', $this->_data);
+}
+
+public function room_details($hotel_name = null, $room_id = null)
+	{
+		
+		if ($hotel_name) {
+			$search = str_replace('-', ' ', urldecode($hotel_name));
+
+			// ✅ เก็บไว้ใน variable ก่อน แล้วค่อยใส่ _data
+			$hotel = $this->hotel->getHotelByName($search);
+			$hotel_id = $hotel['hotel_id'] ?? null;
+
+			$this->_data['hotel'] = $hotel;
+
+			$this->_data['slide_other'] = $hotel_id
+				? $this->slide_other->getHotelsslideotherfront($hotel_id)
+				: [];
 
 			$this->_data['rooms'] = $hotel_id      // ข้อมูล title/desc
 				? $this->room->getRoomByIdfront($hotel_id)
 				: [];
-
-			// $this->_data['facilities'] = $hotel_id
-			// 	? $this->facilities_model->get_facilitiesfront($hotel_id)
-			// 	: [];
 			
-			// $this->_data['facility'] = $hotel_id
-			// 	? $this->facility->_getDatafront($hotel_id) 
-			// 	: [];
-			
-			// $this->_data['gallery'] = $hotel_id
-			// 	? $this->gallery->getGalleryByHotelfront($hotel_id) 
-			// 	: [];
+			$this->_data['room_facility'] = $room_id      // ข้อมูล title/desc
+				? $this->room->getFacilityIdsByRoomIdfront($room_id)
+				: [];
 
-			// $this->_data['footer'] = $hotel_id
-			// 	? $this->footer->_getFooterfront($hotel_id) 
-			// 	: [];
+			$this->_data['room_gallery'] = $room_id      // ข้อมูล title/desc
+				? $this->room->getGalleryIdsByRoomIdfront($room_id)
+				: [];
+
+
+			$this->_data['room_details'] = ($hotel_id && $room_id)
+				? $this->room->getRoomByIdRoomfront($hotel_id, $room_id)[0] ?? []
+				: [];
+
+			$this->_data['footer'] = $hotel_id
+				? $this->footer->_getFooterfront($hotel_id) 
+				: [];
 			
 			
 
@@ -178,8 +201,9 @@ if ($hotel_name) {
 			// exit;
 		}
 
-    $this->load->view('hotel/room', $this->_data);
-}
+		$this->load->view('hotel/room-details', $this->_data);
+		
+	}
 public function facilities($hotel_name = null)
 {
 	// echo '1';

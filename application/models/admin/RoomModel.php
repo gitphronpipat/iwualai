@@ -22,6 +22,16 @@ class RoomModel extends CI_Model
 		return $this->db->get($this->table)->row_array();
 	}
 
+	public function getRoomByIdRoomfront($hotel_id,$room_id)
+    {
+        return $this->db
+            ->where('hotel_id', $hotel_id)
+			->where('room_id', $room_id)
+			->where('status',1)
+            ->get($this->table)
+            ->result_array() ?? [];
+    }
+	
 	public function getRoomByIdfront($hotel_id)
     {
         return $this->db
@@ -121,6 +131,13 @@ class RoomModel extends CI_Model
 		$this->db->order_by('sort_order', 'ASC');
 		return $this->db->get('room_gallery')->result_array();
 	}
+		public function getGalleryIdsByRoomIdfront($room_id)
+	{
+		return $this->db
+			->where('room_id', (int)$room_id)
+			->get('room_gallery')
+			->result_array() ?? [];
+	}
 
 	public function getGalleryById($gallery_id)
 	{
@@ -154,6 +171,14 @@ class RoomModel extends CI_Model
 		$this->db->where('room_id', (int)$room_id);
 		$rows = $this->db->get('room_facility')->result_array();
 		return array_column($rows, 'facility_id');
+	}
+
+	public function getFacilityIdsByRoomIdfront($room_id)
+	{
+		return $this->db
+			->where('room_id', (int)$room_id)
+			->get('room_facility')
+			->result_array() ?? [];
 	}
 
 	public function getAllFacilities()

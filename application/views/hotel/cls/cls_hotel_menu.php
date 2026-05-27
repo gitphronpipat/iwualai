@@ -35,16 +35,30 @@
                                 <ul class="header-social">
                                     <li>
                                         <small>
+											
                                             <div class="header__top__right__language">
-                                                 <div><img src="<?=base_url('assets_hotel/images/icons/en.png')?>"> English</div>
-                                                
-                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                                <ul>
-                                                    <li><a href="swlg.php?lg=th" class="font-nav5" style="display: inline;">
-														<img src="<?=base_url('assets_hotel/images/icons/th.png')?>" width="20%"> ไทย</a></li>
-                                                    
-                                                </ul>
-                                            </div>
+											<?php if ($this->session->userdata('lang') == 'en'): ?>
+												<div><img src="<?= base_url('assets_hotel/images/icons/en.png') ?>"> English</div>
+												<i class="fa fa-angle-down" aria-hidden="true"></i>
+												<ul>
+													<li>
+														<a href="<?= base_url('set_language/th'); ?>" class="font-nav5" style="display: inline;">
+															<img src="<?= base_url('assets_hotel/images/icons/th.png') ?>" width="20%"> ไทย
+														</a>
+													</li>
+												</ul>
+											<?php else: ?>
+												<div><img src="<?= base_url('assets_hotel/images/icons/th.png') ?>"> ไทย</div>
+												<i class="fa fa-angle-down" aria-hidden="true"></i>
+												<ul>
+													<li>
+														<a href="<?= base_url('set_language/en'); ?>" class="font-nav5" style="display: inline;">
+															<img src="<?= base_url('assets_hotel/images/icons/en.png') ?>" width="20%"> English
+														</a>
+													</li>
+												</ul>
+											<?php endif; ?>
+										</div>
                                         </small>
                                     </li>
                                 </ul>

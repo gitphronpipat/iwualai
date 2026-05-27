@@ -142,7 +142,7 @@ class Room extends Core_Controller
 
 		foreach (['image'] as $field) {
 			if (!empty($_FILES[$field]['name'])) {
-				$filename = upload_fileFix($field, '1920', '600', $this->upload_path);
+				$filename = upload_fileFix($field, '660', '370', $this->upload_path);
 				if ($filename) $data[$field] = $filename;
 			}
 		}
@@ -156,7 +156,7 @@ class Room extends Core_Controller
 
 		foreach (['amenity_bg_image'] as $field) {
 			if (!empty($_FILES[$field]['name'])) {
-				$filename = upload_fileFix($field, '1920', '600', $this->upload_path);
+				$filename = upload_fileFix($field, '600', '600', $this->upload_path);
 				if ($filename) $data[$field] = $filename;
 			}
 		}
@@ -244,7 +244,7 @@ class Room extends Core_Controller
 
 		foreach (['image'] as $field) {
 			if (!empty($_FILES[$field]['name'])) {
-				$filename = upload_fileFix($field, '1920', '600', $this->upload_path);
+				$filename = upload_fileFix($field, '660', '370', $this->upload_path);
 				if ($filename) {
 					$this->_deleteOldFile($this->upload_path . ($room[$field] ?? ''));
 					$data[$field] = $filename;
@@ -264,7 +264,7 @@ class Room extends Core_Controller
 
 		foreach (['amenity_bg_image'] as $field) {
 			if (!empty($_FILES[$field]['name'])) {
-				$filename = upload_fileFix($field, '1920', '600', $this->upload_path);
+				$filename = upload_fileFix($field, '600', '600', $this->upload_path);
 				if ($filename) {
 					$this->_deleteOldFile($this->upload_path . ($room[$field] ?? ''));
 					$data[$field] = $filename;
