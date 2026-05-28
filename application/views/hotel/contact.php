@@ -6,20 +6,55 @@
 	css_function();
 	?>
     </head>
+	<style>
+		.page-breadcrumb li a {
+    color: <?php echo $hotel['color'] ?>;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.page-breadcrumb li:after {
+    position: absolute;
+    content: "/";
+    right: -6px;
+    top: 1px;
+    color: <?php echo $hotel['color'] ?>;
+    font-size: 14px;
+    font-weight: 900;
+}
+	</style>
     <body class="dark_bg">
          <?php $this->load->view('hotel/cls/cls_hotel_menu'); ?>
-        <section class="page-title" style="background-image: url(<?=base_url('images/home/page-title-bg.png')?>)">
+        <section class="page-title" style="background-image: url(<?php echo base_url('uploads/slide_other/' . $slide_other['img_contact']) ?>);">
             <div class="container">
                 <div class="title-outer text-center">
                     <h1 class="title">
-						Contact Us
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Contact Us' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ติดต่อเรา' ?? ''; ?>
+								<? endif; ?>
+						
 					</h1>
                     <ul class="page-breadcrumb">
                         <li><a href="<?=base_url('index.php')?>">
-							Home
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Home' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'หน้าหลัก' ?? ''; ?>
+								<? endif; ?>
 						</a></li>
                         <li>
-							Contact
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Contact' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ติดต่อ' ?? ''; ?>
+								<? endif; ?>
 						</li>
                     </ul>
                 </div>
@@ -31,10 +66,18 @@
                     <div class="col-xl-7 col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="sec-title">
                             <span class="sub-title before-none">
-								Send us email
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Send us email' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ส่งอีเมลถึงเรา' ?? ''; ?>
+								<? endif; ?>
 							</span>
                             <h2>
-								Your email address will not be published. Required fields are marked
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo $contact['mail_des_en'] ?? ''; ?>
+								<? else: ?>
+									<?php echo $contact['mail_des_th']?? ''; ?>
+								<? endif; ?>	
 							</h2>
                         </div>
                         <!-- Contact Form -->
@@ -68,8 +111,22 @@
                             </div>
                             <div class="mb-5">
                                 <input name="form_botcheck" class="form-control" type="hidden" value="">
-                                <button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait..."><span class="btn-title">Send message</span></button>
-                                <button type="reset" class="theme-btn btn-style-one bg-theme-color5"><span class="btn-title">Reset</span></button>
+                                <button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait..."><span class="btn-title">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Send message' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ส่งข้อความ' ?? ''; ?>
+								<? endif; ?>
+									
+								</span></button>
+                                <button type="reset" class="theme-btn btn-style-one bg-theme-color5"><span class="btn-title">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Reset' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'รีเซ็ต' ?? ''; ?>
+								<? endif; ?>
+									
+								</span></button>
                             </div>
                         </form>
                         <!-- Contact Form Validation-->
@@ -77,9 +134,28 @@
                     <div class="col-xl-5 col-lg-6 wow fadeIn" data-wow-delay="0.2s">
                         <div class="contact-details__right">
                             <div class="sec-title">
-                                <span class="sub-title before-none">Need any help?</span>
-                                <h2>Get in touch with us</h2>
-                                <div class="text">Welcome to our Website. We are glad to have you around.</div>
+                                <span class="sub-title before-none">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Need any help?' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ต้องการความช่วยเหลือไหม?' ?? ''; ?>
+								<? endif; ?>
+								</span>
+                                <h2>
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Get in touch with us' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ติดต่อเรา' ?? ''; ?>
+								<? endif; ?>
+								</h2>
+                                <div class="text">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo $contact['contact_des_en'] ?? ''; ?>
+								<? else: ?>
+									<?php echo $contact['contact_des_th']?? ''; ?>
+								<? endif; ?>	
+									
+								</div>
                             </div>
                             <ul class="list-unstyled contact-details__info">
                                 <li>
@@ -87,8 +163,18 @@
                                         <i class="fa-solid fa-phone-volume"></i>
                                     </div>
                                     <div class="text">
-                                        <h6 class="mb-1">Have any question?</h6>
-                                        <a href="tel:980089850"> 053-271-800</a>
+                                        <h6 class="mb-1">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Have any question?' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'มีคำถามอะไรไหม?' ?? ''; ?>
+								<? endif; ?>
+											
+										</h6>
+                                        <a href="tel:980089850"> 
+											<?= str_replace(['["', '"]', '","'], ['', '', ' , '], $footer['phone']); ?>
+											053-271-800
+										</a>
                                     </div>
                                 </li>
                                 <li>
@@ -96,8 +182,17 @@
                                         <i class="fa-solid fa-envelope"></i>
                                     </div>
                                     <div class="text">
-                                        <h6 class="mb-1">Write email</h6>
-                                        <a href="mailto:info@iwualai.com">info@iwualai.com</a>
+                                        <h6 class="mb-1">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Write email' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'เขียนอีเมล' ?? ''; ?>
+								<? endif; ?>
+											
+										</h6>
+                                        <a href="mailto:info@iwualai.com">
+											<?= str_replace(['["', '"]', '","'], ['', '', ' , '], $footer['email']); ?>
+										</a>
                                     </div>
                                 </li>
                                 <li>
@@ -105,8 +200,21 @@
                                         <i class="fa-solid fa-earth-europe"></i>
                                     </div>
                                     <div class="text">
-                                        <h6 class="mb-1">Visit anytime</h6>
-                                        <span>84 Wualai Road. Tambon Haiya, Amphoe Muang Chiang Mai</span>
+                                        <h6 class="mb-1">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Visit anytime' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'เชิญมาได้ทุกเมื่อ' ?? ''; ?>
+								<? endif; ?>
+											
+										</h6>
+                                        <span>
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?= $footer['address_en'] ?? ''; ?>
+								<? else: ?>
+									<?= $footer['address_th'] ?? ''; ?>
+								<? endif; ?>
+										</span>
                                     </div>
                                 </li>
                             </ul>

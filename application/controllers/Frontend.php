@@ -287,30 +287,32 @@ public function contact($hotel_name = null)
 			$hotel_id = $hotel['hotel_id'] ?? null;
 
 			$this->_data['hotel'] = $hotel;
-			$this->_data['about'] = $hotel_id
-				? $this->home_banner->get_bannerfront($hotel_id)
-				: [];
 
-			$this->_data['banner_img'] = $hotel_id
-				? $this->banner_img->getBannersByHotelIdfront($hotel_id)
+			$this->_data['contact'] = $hotel_id
+				? $this->db->where('hotel_id', $hotel_id)->get('contact')->row_array()
 				: [];
+			// $this->_data['banner_img'] = $hotel_id
+			// 	? $this->banner_img->getBannersByHotelIdfront($hotel_id)
+			// 	: [];
 			
-			$this->_data['room_info'] = $hotel_id
-				? $this->home_rooms->get_roomsfront($hotel_id)
-				: [];
+			// $this->_data['room_info'] = $hotel_id
+			// 	? $this->home_rooms->get_roomsfront($hotel_id)
+			// 	: [];
 
-			$this->_data['rooms'] = $hotel_id      // ข้อมูล title/desc
-				? $this->room->getRoomByIdfront($hotel_id)
-				: [];
+			// $this->_data['rooms'] = $hotel_id      // ข้อมูล title/desc
+			// 	? $this->room->getRoomByIdfront($hotel_id)
+			// 	: [];
 
-			$this->_data['facilities'] = $hotel_id
-				? $this->facilities_model->get_facilitiesfront($hotel_id)
-				: [];
+			// $this->_data['facilities'] = $hotel_id
+			// 	? $this->facilities_model->get_facilitiesfront($hotel_id)
+			// 	: [];
 			
-			$this->_data['facility'] = $hotel_id
-				? $this->facility->_getDatafront($hotel_id) 
+			// $this->_data['facility'] = $hotel_id
+			// 	? $this->facility->_getDatafront($hotel_id) 
+			// 	: [];
+			$this->_data['slide_other'] = $hotel_id
+				? $this->slide_other->getHotelsslideotherfront($hotel_id)
 				: [];
-			
 
 
 			$this->_data['footer'] = $hotel_id

@@ -20,7 +20,7 @@
 									<i class="fas fa-envelope me-2"></i> Mail Description
 								</h5>
 								<div class="form-group col-md-6 mb-3">
-									<label class="fw-bold">Mail Description (TH)</label>
+									<label class="fw-bold">คำอธิบายอีเมล (TH)</label>
 									<textarea name="mail_des_th" class="tiny-editor form-control mt-2" rows="4"
 										placeholder="คำอธิบาย Mail ภาษาไทย"><?= htmlspecialchars($contact['mail_des_th'] ?? ''); ?></textarea>
 								</div>
@@ -36,7 +36,7 @@
 									<i class="fas fa-address-book me-2"></i> Contact Description
 								</h5>
 								<div class="form-group col-md-6 mb-3">
-									<label class="fw-bold">Contact Description (TH)</label>
+									<label class="fw-bold">รายละเอียดการติดต่อ (TH)</label>
 									<textarea name="contact_des_th" class="tiny-editor form-control mt-2" rows="4"
 										placeholder="คำอธิบาย Contact ภาษาไทย"><?= htmlspecialchars($contact['contact_des_th'] ?? ''); ?></textarea>
 								</div>

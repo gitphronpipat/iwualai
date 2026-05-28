@@ -28,11 +28,15 @@
                 <ul class="topbar-one__info">
                     <li class="topbar-one__info-item">
                         <span class="topbar-one__info-icon fa-solid fa-phone-volume pr-2" aria-hidden="true"></span>
-                        <a href="tel:053-271800" class="topbar-one__info-text">Telephone : 053-271800</a>
+                        <a href="tel:053-271800" class="topbar-one__info-text">
+							Telephone : 053-271800
+						</a>
                     </li>
                     <li class="topbar-one__info-item">
                         <span class="topbar-one__info-icon fa-solid fa-envelope pr-2"></span>
-                        <a href="mailto:info@iwualai.com" class="topbar-one__info-text">Email : info@iwualai.com</a>
+                        <a href="mailto:info@iwualai.com" class="topbar-one__info-text">
+							Email : info@iwualai.com
+						</a>
                     </li>
                 </ul>
                
@@ -95,25 +99,57 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav align-items-lg-center justify-content-end flex-grow-1 ">
                         <li class="nav-item">
-                            <a class="nav-link btn-secondary " href="<?=base_url('iWualai-Hotel')?>">Home</a>
+                            <a class="nav-link btn-secondary " href="<?=base_url('iWualai-Hotel')?>">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'HOME' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'หน้าหลัก' ?? ''; ?>
+								<? endif; ?>
+							</a>
                         </li>
                         
                         <li class="nav-item">
                             <a class="nav-link btn-secondary" 
-							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/room') ?>">Rooms</a>
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/room') ?>">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'ROOMS' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ห้องพัก' ?? ''; ?>
+								<? endif; ?>
+						</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link btn-secondary " 
-							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/facilities') ?>">FACILITIES</a>
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/facilities') ?>">
+							<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'FACILITIES' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'สิ่งอำนวยความสะดวก' ?? ''; ?>
+								<? endif; ?>
+							
+						</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-secondary "  
-							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/gallery') ?>">GALLERY</a>
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/gallery') ?>">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'GALLERY' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'แกลเลอรี' ?? ''; ?>
+								<? endif; ?>
+							
+						</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-secondary " 
-							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/contact') ?>">CONTACT</a>
+							href="<?= base_url(str_replace(' ', '-', $hotel['title_en']) . '/contact') ?>">
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'CONTACT' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'ติดต่อ' ?? ''; ?>
+								<? endif; ?>
+						</a>
                         </li>
                         
                     </ul>
@@ -122,7 +158,12 @@
                         
                         <div class="btn-box d-none d-lg-block text-center">
                             <a href="https://hotels.cloudbeds.com/reservation/DLSe72"> 
-								Book now 
+								<? if ($this->session->userdata('lang') == 'en'): ?>
+									<?php echo 'Book now' ?? ''; ?>
+								<? else: ?>
+									<?php echo 'จองเลย' ?? ''; ?>
+								<? endif; ?>
+								
 								</a>
                         </div>
                     </div>
